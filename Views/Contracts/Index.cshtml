@@ -1,0 +1,110 @@
+﻿@model IEnumerable<PublishingContractManager.Models.Contract>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Contracts</h2>
+<form asp-action="Index" method="get">
+    <p>
+        Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+        <input type="submit" value="Search" class="btn btn-default" /> |
+        <a asp-action="Create">Create New</a>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Representative)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookISBN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PageCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompletionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FixedPay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesForRoyalties)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoyaltyRate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyApproval)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuthorApproval)
+                </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.LastName), @Html.DisplayFor(modelItem => item.Author.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Representative.LastName), @Html.DisplayFor(modelItem => item.Representative.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PageCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletionDate.Month)/@Html.DisplayFor(modelItem => item.CompletionDate.Day)/@Html.DisplayFor(modelItem => item.CompletionDate.Year)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.FixedPay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesForRoyalties)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoyaltyRate)%
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyApproval)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorApproval)
+            </td>
+            
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

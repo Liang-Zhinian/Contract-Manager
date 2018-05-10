@@ -1,0 +1,11 @@
+C:\Users\Jacob\source\repos\PublishingContractManager\bin\Debug\netcoreapp2.0\PublishingContractManager.deps.json
+C:\Users\Jacob\source\repos\PublishingContractManager\bin\Debug\netcoreapp2.0\PublishingContractManager.runtimeconfig.json
+C:\Users\Jacob\source\repos\PublishingContractManager\bin\Debug\netcoreapp2.0\PublishingContractManager.runtimeconfig.dev.json
+C:\Users\Jacob\source\repos\PublishingContractManager\bin\Debug\netcoreapp2.0\PublishingContractManager.dll
+C:\Users\Jacob\source\repos\PublishingContractManager\bin\Debug\netcoreapp2.0\PublishingContractManager.pdb
+C:\Users\Jacob\source\repos\PublishingContractManager\obj\Debug\netcoreapp2.0\PublishingContractManager.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\source\repos\PublishingContractManager\obj\Debug\netcoreapp2.0\PublishingContractManager.csproj.CoreCompileInputs.cache
+C:\Users\Jacob\source\repos\PublishingContractManager\obj\Debug\netcoreapp2.0\PublishingContractManager.AssemblyInfoInputs.cache
+C:\Users\Jacob\source\repos\PublishingContractManager\obj\Debug\netcoreapp2.0\PublishingContractManager.AssemblyInfo.cs
+C:\Users\Jacob\source\repos\PublishingContractManager\obj\Debug\netcoreapp2.0\PublishingContractManager.dll
+C:\Users\Jacob\source\repos\PublishingContractManager\obj\Debug\netcoreapp2.0\PublishingContractManager.pdb

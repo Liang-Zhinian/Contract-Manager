@@ -1,0 +1,134 @@
+﻿@model PublishingContractManager.Models.Contract
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Contract</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            <h4>
+                Author:
+            </h4>
+            <h5>
+                @Html.DisplayFor(model => model.Author.FullName)
+            </h5>
+        </p>
+        <p>
+            <h4>
+                Representative:
+            </h4>
+            <h5>
+                @Html.DisplayFor(model => model.Representative.FullName)
+            </h5>
+        </p>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BookTitle" class="control-label"></label>
+                <input asp-for="BookTitle" class="form-control" />
+                <span asp-validation-for="BookTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookISBN" class="control-label"></label>
+                <input asp-for="BookISBN" class="form-control" />
+                <span asp-validation-for="BookISBN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PageCount" class="control-label"></label>
+                <input asp-for="PageCount" class="form-control" />
+                <span asp-validation-for="PageCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompletionDate" class="control-label"></label>
+                <input asp-for="CompletionDate" class="form-control" />
+                <span asp-validation-for="CompletionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FixedPay" class="control-label"></label>
+                <input asp-for="FixedPay" class="form-control" />
+                <span asp-validation-for="FixedPay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalesForRoyalties" class="control-label"></label>
+                <input asp-for="SalesForRoyalties" class="form-control" />
+                <span asp-validation-for="SalesForRoyalties" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoyaltyRate" class="control-label"></label>
+                <input asp-for="RoyaltyRate" class="form-control" />
+                <span asp-validation-for="RoyaltyRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="CompanyApproval" /> @Html.DisplayNameFor(model => model.CompanyApproval)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyApprovalDate" class="control-label"></label>
+                <input asp-for="CompanyApprovalDate" class="form-control" />
+                <span asp-validation-for="CompanyApprovalDate" class="text-danger"></span>
+                @if (TempData["Error"].ToString() == "Company Approval Date cannot be earlier than Creation Date.")
+                {
+                    <p style="color:red">Company Approval Date cannot be earlier than Creation Date.</p>
+
+                }
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AuthorApproval" /> @Html.DisplayNameFor(model => model.AuthorApproval)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AuthorApprovalDate" class="control-label"></label>
+                <input asp-for="AuthorApprovalDate" class="form-control" />
+                <span asp-validation-for="AuthorApprovalDate" class="text-danger"></span>
+                @if (TempData["Error"].ToString() == "Author Approval Date cannot be earlier than Creation Date.")
+                {
+                    <p style="color:red">Author Approval Date cannot be earlier than Creation Date.</p>
+
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" readonly />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="AuthorId" type="hidden" id="author"/>
+            </div>
+            <div class="form-group">
+                <input asp-for="RepresentativeId"  type="hidden" id="rep" />
+            </div>
+            <script>
+                document.getElementById(author).nodeValue = @Model.AuthorId;
+                document.getElementById(rep).nodeValue = @Model.RepresentativeId;
+            </script>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

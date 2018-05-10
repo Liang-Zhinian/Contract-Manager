@@ -1,0 +1,127 @@
+﻿@model PublishingContractManager.Models.Contract
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    @if (Model.CompanyApproval == true && Model.AuthorApproval == true)
+    {
+        <h4>Contract(Official)</h4>
+    }
+    else
+    {
+        <h4>Contract(Tentative)</h4>
+
+    }
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author.LastName), @Html.DisplayFor(model => model.Author.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Representative)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Representative.LastName), @Html.DisplayFor(model => model.Representative.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookISBN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookISBN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PageCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PageCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CompletionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompletionDate.Date.Month)/@Html.DisplayFor(model => model.CompletionDate.Date.Day)/@Html.DisplayFor(model => model.CompletionDate.Date.Year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FixedPay)
+        </dt>
+        <dd>
+             $@Html.DisplayFor(model => model.FixedPay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesForRoyalties)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SalesForRoyalties)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RoyaltyRate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RoyaltyRate)%
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyApproval)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyApproval)
+        </dd>
+        @if (Model.CompanyApproval == true)
+        {
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyApprovalDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanyApprovalDate.Date.Month)/@Html.DisplayFor(model => model.CompanyApprovalDate.Date.Day)/@Html.DisplayFor(model => model.CompanyApprovalDate.Date.Year)
+        </dd>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorApproval)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AuthorApproval)
+        </dd>
+        @if (Model.AuthorApproval == true)
+        {
+        <dt>
+            @Html.DisplayNameFor(model => model.AuthorApprovalDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AuthorApprovalDate.Date.Month)/@Html.DisplayFor(model => model.AuthorApprovalDate.Date.Day)/@Html.DisplayFor(model => model.AuthorApprovalDate.Date.Year)
+        </dd>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate.Date.Month)/@Html.DisplayFor(model => model.CreationDate.Date.Day)/@Html.DisplayFor(model => model.CreationDate.Date.Year)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    @if (Model.AuthorApproval != true || Model.CompanyApproval != true)
+    {
+         <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+     }
+
+
+</div>
